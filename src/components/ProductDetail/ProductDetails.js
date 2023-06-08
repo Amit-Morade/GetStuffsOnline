@@ -1,13 +1,13 @@
-import { useParams } from "react-router-dom"
-import { getProductById } from "../ProductList/ProductData"
+import { useNavigate, useParams } from "react-router-dom"
 import "./ProductDetails.css";
 import productReturn from "./product-return.png"
-import { getDiscountPercent } from "../ProductList/ProductData";
+import { getDiscountPercent, getProductById } from "../ProductList/ProductData";
+import { addToCart } from "../../data/cart";
 
 export default function ProductDetails(){
-    const {id} = useParams("id")
-    const product = getProductById(id)
-    console.log(product)
+    const {id} = useParams("id");
+    const navigate = useNavigate();
+    const product = getProductById(id);
 
     return (
         <div className="product-details">
@@ -15,6 +15,10 @@ export default function ProductDetails(){
                 <img className="product-details-image" src={product.image} />
             </div>
             <div className="product-details-info-container">
+                <button onClick={() => {
+                    addToCart(product)
+                    navigate(`/cartconfirmation/${product.id}`)
+                }}>Add to Cart</button>
                 <p className="product-details-brand">Brand: {product.brand}</p>
                 <p className="product-details-name">{product.name}</p>
                 <p>{product.noOfRatings}</p>
