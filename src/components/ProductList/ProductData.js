@@ -1,8 +1,8 @@
-import shoe0 from "./shoe0.jpg"
-import shoe1 from "./shoe1.jpg"
-import shoe2 from "./shoe2.jpg"
-import shoe3 from "./shoe3.jpg"
-import shoe4 from "./shoe4.jpg"
+import shoe0 from "./images/shoe0.jpg"
+import shoe1 from "./images/shoe1.jpg"
+import shoe2 from "./images/shoe2.jpg"
+import shoe3 from "./images/shoe3.jpg"
+import shoe4 from "./images/shoe4.jpg"
 
 const products = [];
 
@@ -22,9 +22,11 @@ function getShoe(i) {
 
 for(let i=0;i<20;i++) {
     products.push({
+        id: i,
         brand: "Nike",
         category: "shoes",
         name: "Nike Mens Air Max Pre-Day Se Running Shoe",
+        isDiscounted: true,
         noOfRatings: "11",
         listPrice: "3000",
         sellingPrice: "2800",
@@ -33,8 +35,22 @@ for(let i=0;i<20;i++) {
         isPrimeVerified: true,
         isReturnable: true,
         returnTimeline: "10 Days",
+        payOnDeliveryAvailable: true,
         image: getShoe(i%5)       
     })
 }
 
-export {products}
+function getProductById(productId) {
+    const product = products.find(product => {
+        return product.id===Number(productId)
+    });
+    return product
+}
+
+function getDiscountPercent(product) {
+    const discount = product.listPrice - product.sellingPrice;
+    const discountPercent = Math.floor((discount/product.listPrice) * 100);
+    return discountPercent;
+}
+
+export {products, getProductById, getDiscountPercent}
