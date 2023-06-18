@@ -1,0 +1,36 @@
+.google-login-button {
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    width: fit-content;
+    gap: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.google-logo-container {
+    margin: 0;
+    padding: 1px;
+    border-radius: 2px;
+}
+
+.google-login-button img {
+    height: 20px;
+    padding: 10px;
+    margin: 0;
+    background-color: white;
+    display: block;
+    border-radius: 2px;
+
+}
+
+.google-login-button button {
+    background-color: inherit;
+    color: white;
+    border: 0;
+    height: inherit;
+    font-size: 18px;
+    outline: none;
+    cursor: pointer;
+}
