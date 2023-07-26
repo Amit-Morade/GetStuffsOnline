@@ -6,11 +6,15 @@ export async function loginUser() {
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-            redirectTo: 'http://localhost:3000/productlist'
+            redirectTo: 'productlist'
         }
     })
 }
 
 export async function logoutUser() {
-    const { error } = await supabase.auth.signOut()
+    const { error } = await supabase.auth.signOut({
+        options: {
+            redirectTo: '/'
+        }
+    })
 }
