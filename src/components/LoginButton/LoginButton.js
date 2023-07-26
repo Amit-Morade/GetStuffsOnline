@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { loginUser, supabase } from "../../utils/supabase"
 import { UserContext } from "../../contexts/UserContext"
 import GoogleLogo from "../../images/icons8-google-logo.svg"
-import { Button } from "@mui/material"
+
 import "./LoginButton.css"
 
 
